@@ -10,7 +10,18 @@ class Hotel extends Model
     use HasFactory;
 
     
-
+    protected $guarded = [
+        'id',
+        'city_id',
+    ];
+    
+    protected $fillable = [
+        'name',
+        'address',
+        'star',
+        'phone_number',
+        'email'
+    ];
 
 
     public function city(){

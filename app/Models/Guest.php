@@ -9,6 +9,17 @@ class Guest extends Model
 {
     use HasFactory;
 
+    protected $guarded = [
+        'id'
+    ];
+    
+    protected $fillable = [
+        'name',
+        'first_name',
+        'last_name',
+        'passport_number',
+    ];
+
 
     public function rooms() {
         return $this->belongsTo(Room::class);

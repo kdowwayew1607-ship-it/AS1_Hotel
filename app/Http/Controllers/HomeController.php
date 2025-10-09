@@ -12,8 +12,8 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function hotel_index(Request $request) {
-        $cities = City::get();
+    public function home_index(Request $request) {
+        $cities = City::withCount('hotels')->get();
         $hotels = Hotel::get();
         $rooms = Room::get();
         $guests = Guest::get();
@@ -23,7 +23,7 @@ class HomeController extends Controller
         return view('home.index')-> with([
             'cities' => $cities,
             'hotels' => $hotels,
-            'rooms' => $cities,
+            'rooms' => $rooms,
             'guests' => $guests,
             'bookings' => $bookings,
         ]);
